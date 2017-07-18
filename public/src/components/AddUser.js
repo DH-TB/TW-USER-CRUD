@@ -1,20 +1,21 @@
 import React, {component} from 'react';
 
 export default class AddUser extends React.Component {
-    componentDidMount(){
+    componentDidMount() {
         this.props.GetAllUser();
     }
+
     render() {
-        const user = this.props.FindUser.map((ele,index)=>{
-            return <div key={index}>
-                {ele.username}
-                {ele.name}
-                {ele.age}
-                {ele.sex}
-                {ele.phone}
-                {ele.email}
-                {ele.remark}
-            </div>
+        const user = this.props.FindUser.map((ele, index)=> {
+            return <tr key={index}>
+                <td>{ele.username}</td>
+                <td>{ele.name}</td>
+                <td>{ele.age}</td>
+                <td>{ele.sex}</td>
+                <td>{ele.phone}</td>
+                <td>{ele.email}</td>
+                <td>{ele.remark}</td>
+            </tr>
         });
         return <div>
             <nav className="navbar navbar-inverse" role="navigation">
@@ -30,7 +31,24 @@ export default class AddUser extends React.Component {
             <div id="main">
                 <input type="text" placeholder="请输入要查询的用户"/>
                 <button>查询</button>
-                {user}
+                <div>
+                    <table className="table table-style">
+                        <thead>
+                        <tr>
+                            <th>用户名</th>
+                            <th>姓名</th>
+                            <th>年龄</th>
+                            <th>性别</th>
+                            <th>电话</th>
+                            <th>邮件</th>
+                            <th>备注</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {user}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     }

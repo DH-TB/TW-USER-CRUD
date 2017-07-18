@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.use(express.static('./public'));
-app.use(require('./routes/router/index'));
+app.use(require('./routes/index'));
 
 const server = app.listen(3000,()=>{
     const port = server.address().port;
