@@ -1,0 +1,23 @@
+{
+  "name": "TW-USER-CRUD",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DH-TB/TW-USER-CRUD.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DH-TB/TW-USER-CRUD/issues"
+  },
+  "homepage": "https://github.com/DH-TB/TW-USER-CRUD#readme",
+  "dependencies": {
+    "webpack": "^3.3.0"
+  }
+}
