@@ -9,6 +9,7 @@ router.get('/getUser',(req,res,next)=>{
         if(err){
             return next(err);
         }
+        console.log(data);
         res.send(data);
     })
 });

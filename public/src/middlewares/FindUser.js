@@ -5,8 +5,8 @@ export default store=>next=>action=>{
         case 'GET_ALL_USER':
             request.get('/getUser')
                 .end((err,res)=>{
-
+                    next({type:'GET_USER_INFO',content:res.body})
                 })
     }
-    next(action)
+    next(action);
 }

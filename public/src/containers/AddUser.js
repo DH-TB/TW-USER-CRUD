@@ -3,12 +3,14 @@ import AddUser from '../components/AddUser';
 import actions from '../actions/User';
 
 const mapStateToProps = (state)=> {
-    return state
+    return {
+        FindUser:state.FindUser
+    };
 };
 const mapDispatchToProps = (dispatch)=> {
     return {
         GetAllUser: ()=> {
-            dispatch(actions.GetAllUser)
+            dispatch(actions.getAllUser())
         }
     }
 };
