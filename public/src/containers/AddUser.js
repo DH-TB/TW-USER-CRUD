@@ -1,11 +1,11 @@
 import {connect} from 'react-redux';
 import AddUser from '../components/AddUser';
 
-const mapStateToProps = (state)=>{
+const mapStateToProps = (state)=> {
     return state
 };
-const mapDispatchToProps = (dispatch)=>{
-
+const mapDispatchToProps = (dispatch)=> {
+    return {}
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(AddUser);
+export default connect(mapStateToProps, mapDispatchToProps)(AddUser);
