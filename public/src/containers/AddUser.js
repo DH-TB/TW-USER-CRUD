@@ -11,6 +11,10 @@ const mapDispatchToProps = (dispatch)=> {
     return {
         GetAllUser: ()=> {
             dispatch(actions.getAllUser())
+        },
+        GetOneUser:(username)=>{
+            dispatch(actions.getOneUser(username))
+
         }
     }
 };

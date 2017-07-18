@@ -4,7 +4,11 @@ export default class AddUser extends React.Component {
     componentDidMount() {
         this.props.GetAllUser();
     }
-
+    queryOne(){
+        const username = this.refs.username.value;
+        this.props.GetOneUser(username);
+        this.refs.username.value = '';
+    }
     render() {
         const user = this.props.FindUser.map((ele, index)=> {
             return <tr key={index}>
@@ -29,8 +33,8 @@ export default class AddUser extends React.Component {
                 </div>
             </nav>
             <div id="main">
-                <input type="text" placeholder="请输入要查询的用户"/>
-                <button>查询</button>
+                <input type="text" placeholder="请输入要查询的用户" ref="username"/>
+                <button onClick={this.queryOne.bind(this)}>查询</button>
                 <div>
                     <table className="table table-style">
                         <thead>
