@@ -1,6 +1,9 @@
 import React, {component} from 'react';
 
 export default class AddUser extends React.Component {
+    componentWillMount(){
+        this.props.GetAllUser();
+    }
     render() {
         return <div>
             <nav className="navbar navbar-inverse" role="navigation">
