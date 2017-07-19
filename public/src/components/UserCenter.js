@@ -23,8 +23,8 @@ export default class UserCenter extends React.Component {
     }
 
     modifyModal(ele) {
-        const username = ele.username;
-        this.props.GetModifyUser(username);
+        const id = ele.id;
+        this.props.GetModifyUser(id);
         $('#modifyModal').modal('show');
     }
 

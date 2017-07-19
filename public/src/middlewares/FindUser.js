@@ -15,7 +15,7 @@ export default store=>next=>action=>{
                 });
             break;
         case 'GET_MODIFY_USER':
-            request.get(`/getModifyUser/${action.username}`)
+            request.get(`/getModifyUser/${action.id}`)
                 .end((err,res)=>{
                     next({type:'GET_ONE_USER_INFO',content:res.body})
                 });

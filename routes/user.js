@@ -15,8 +15,8 @@ router.delete('/deleteUser/:id',(req,res,next)=>{
 router.post('/addUser',(req,res,next)=>{
    userDao.add(req,res,next);
 });
-router.get('/getModifyUser/:username',(req,res,next)=>{
-    userDao.queryByUserName(req,res,next);
+router.get('/getModifyUser/:id',(req,res,next)=>{
+    userDao.queryById(req,res,next);
 });
 router.put('/modifyUser',(req,res,next)=>{
     userDao.modify(req,res,next);

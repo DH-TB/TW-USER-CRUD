@@ -73,10 +73,10 @@ module.exports = {
             });
         });
     },
-    queryByUserName: (req, res, next) => {
-        const username = req.params.username;
+    queryById: (req, res, next) => {
+        const id = req.params.id;
         pool.getConnection(function (err, connection) {
-            connection.query($sql.queryOne, username, (err, rows, result)=> {
+            connection.query($sql.queryById, id, (err, rows, result)=> {
                 for (var i in rows) {
                     jsonWrite(res, rows[i]);
                 }
