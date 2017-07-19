@@ -7,7 +7,7 @@ router.get('/getUser', (req, res, next)=> {
     userDao.queryAll(req, res, next);
 });
 router.get('/getOneUser/:username',(req,res,next)=>{
-   userDao.queryByUserName(req,res,next);
+   userDao.queryOne(req,res,next);
 });
 router.delete('/deleteUser/:username',(req,res,next)=>{
     userDao.deleteByUserName(req,res,next);
@@ -15,4 +15,8 @@ router.delete('/deleteUser/:username',(req,res,next)=>{
 router.post('/addUser',(req,res,next)=>{
    userDao.add(req,res,next);
 });
+router.get('/getModifyUser/:username',(req,res,next)=>{
+    userDao.queryByUserName(req,res,next);
+});
+
 module.exports = router;

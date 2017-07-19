@@ -15,9 +15,15 @@ const deleteOneUser = (username)=>{
         username
     }
 };
-
+const getModifyUser = (username)=>{
+    return {
+        type:'GET_MODIFY_USER',
+        username
+    }
+};
 module.exports={
     getAllUser,
     getOneUser,
-    deleteOneUser
+    deleteOneUser,
+    getModifyUser
 };

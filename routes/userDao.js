@@ -23,13 +23,13 @@ module.exports = {
                 body.username, body.name, body.age, body.sex,
                 body.phone, body.email, body.remark
             ], (err, result)=> {
-                if(err){
+                if (err) {
                     return next(err);
                 }
                 if (result) {
                     result = {
                         code: 200,
-                        msg:'增加成功'
+                        msg: '增加成功'
                     };
                 }
                 jsonWrite(res, result);
@@ -45,10 +45,19 @@ module.exports = {
             });
         });
     },
+    queryOne: (req, res, next) => {
+        const username = req.params.username;
+        pool.getConnection(function (err, connection) {
+            connection.query($sql.queryByUserName, username, (err, result)=> {
+                jsonWrite(res, result);
+                connection.release();
+            });
+        });
+    },
     queryByUserName: (req, res, next) => {
         const username = req.params.username;
         pool.getConnection(function (err, connection) {
-            connection.query($sql.queryByUserName, username, function (err, rows,result) {
+            connection.query($sql.queryByUserName, username, (err, rows, result)=> {
                 for (var i in rows) {
                     jsonWrite(res, rows[i]);
                 }

@@ -9,8 +9,13 @@ export default store=>next=>action=>{
                 });
             break;
         case 'GET_ONE_USER':
-            console.log(action.username);
             request.get(`/getOneUser/${action.username}`)
+                .end((err,res)=>{
+                    next({type:'GET_USER_INFO',content:res.body})
+                });
+            break;
+        case 'GET_MODIFY_USER':
+            request.get(`/getModifyUser/${action.username}`)
                 .end((err,res)=>{
                     next({type:'GET_ONE_USER_INFO',content:res.body})
                 });

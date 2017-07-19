@@ -18,6 +18,9 @@ const mapDispatchToProps = (dispatch)=> {
         DeleteOneUser:(username)=>{
             dispatch(actions.deleteOneUser(username))
         },
+        GetModifyUser:(username)=>{
+            dispatch(actions.getOneUser(username))
+        },
     }
 };
 
