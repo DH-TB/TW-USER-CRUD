@@ -9,12 +9,17 @@ export default class UserCenter extends React.Component {
 
     queryOne() {
         const username = this.refs.username.value;
-        this.props.GetOneUser(username);
-        this.refs.username.value = '';
+        if(username == ''){
+            this.props.GetAllUser();
+        }
+        else{
+            this.props.GetOneUser(username);
+            this.refs.username.value = '';
+        }
     }
 
-    deleteOne(username) {
-        this.props.DeleteOneUser(username)
+    deleteOne(id) {
+        this.props.DeleteOneUser(id)
     }
 
     modifyModal(ele) {
@@ -26,7 +31,7 @@ export default class UserCenter extends React.Component {
     render() {
         const user = this.props.FindUser.map((ele, index)=> {
             return <tr key={index}>
-                <td>{index}</td>
+                <td>{ele.id}</td>
                 <td>{ele.username}</td>
                 <td>{ele.name}</td>
                 <td>{ele.age}</td>
@@ -39,7 +44,7 @@ export default class UserCenter extends React.Component {
                             data-target="#ModifyModal" onClick={this.modifyModal.bind(this, ele)}>修改
                     </button>
                     <ModifyUser/>
-                    <button onClick={this.deleteOne.bind(this, ele.username)}>删除</button>
+                    <button onClick={this.deleteOne.bind(this, ele.id)}>删除</button>
                 </td>
             </tr>
         });

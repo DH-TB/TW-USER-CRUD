@@ -9,8 +9,8 @@ router.get('/getUser', (req, res, next)=> {
 router.get('/getOneUser/:username',(req,res,next)=>{
    userDao.queryOne(req,res,next);
 });
-router.delete('/deleteUser/:username',(req,res,next)=>{
-    userDao.deleteByUserName(req,res,next);
+router.delete('/deleteUser/:id',(req,res,next)=>{
+    userDao.deleteById(req,res,next);
 });
 router.post('/addUser',(req,res,next)=>{
    userDao.add(req,res,next);

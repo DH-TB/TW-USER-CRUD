@@ -84,10 +84,10 @@ module.exports = {
             });
         });
     },
-    deleteByUserName: function (req, res, next) {
+    deleteById: function (req, res, next) {
         pool.getConnection((err, connection) => {
-            const username = req.params.username;
-            connection.query($sql.delete, username, function (err, result) {
+            const id = req.params.id;
+            connection.query($sql.delete, id, function (err, result) {
                 if (result.affectedRows > 0) {
                     result = {
                         code: 200,

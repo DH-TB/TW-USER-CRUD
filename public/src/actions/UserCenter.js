@@ -9,16 +9,16 @@ const getOneUser = (username)=>{
         username
     }
 };
-const deleteOneUser = (username)=>{
+const deleteOneUser = (id)=>{
     return {
         type:'DELETE_ONE_USER',
-        username
+        id
     }
 };
-const getModifyUser = (username)=>{
+const getModifyUser = (id)=>{
     return {
         type:'GET_MODIFY_USER',
-        username
+        id
     }
 };
 module.exports={

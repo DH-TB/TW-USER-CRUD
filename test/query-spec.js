@@ -17,9 +17,9 @@ describe('loading express', function () {
             .get('/getUser')
             .expect(200, done);
     });
-    it('responds to /', (done)=> {
+    /*it('404 everything else', function testPath(done) {
         request(server)
-            .get('/getOneUser')
-            .expect(200, done);
-    });
+            .get('/user')
+            .expect(404, done);
+    });*/
 });

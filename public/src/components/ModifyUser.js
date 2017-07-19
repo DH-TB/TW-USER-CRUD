@@ -22,7 +22,7 @@ export default class ModifyUser extends Component {
 
     }
     render() {
-        return <div className="modal fade" id="ModifyModal" tabindex="-1" role="dialog"
+        return <div className="modal fade" id="ModifyModal" tabIndex="-1" role="dialog"
                     aria-labelledby="myModalLabel" aria-hidden="true">
             <div className="modal-dialog">
                 <div className="modal-content">
