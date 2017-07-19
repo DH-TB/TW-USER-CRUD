@@ -12,7 +12,7 @@ export default class AddUser extends Component {
         this.props.AddUser(username,name,age,sex,phone,email,remark);
     }
     render() {
-        return <div className="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        return <div className="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                     aria-hidden="true">
             <div className="modal-dialog">
                 <div className="modal-content">

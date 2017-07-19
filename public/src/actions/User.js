@@ -9,7 +9,15 @@ const getOneUser = (username)=>{
         username
     }
 };
+const deleteOneUser = (username)=>{
+    return {
+        type:'DELETE_ONE_USER',
+        username
+    }
+};
+
 module.exports={
     getAllUser,
-    getOneUser
+    getOneUser,
+    deleteOneUser
 };

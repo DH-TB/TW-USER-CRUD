@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import AddUser from '../components/AddUser';
+import UserCenter from '../components/UserCenter';
 import actions from '../actions/User';
 
 const mapStateToProps = (state)=> {
@@ -21,4 +21,4 @@ const mapDispatchToProps = (dispatch)=> {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddUser);
+export default connect(mapStateToProps, mapDispatchToProps)(UserCenter);

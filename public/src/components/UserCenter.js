@@ -1,8 +1,10 @@
 import React, {component} from 'react';
+import AddUser from '../containers/AddUser';
+import ModifyUser from '../containers/ModifyUser';
 
-export default class AddUser extends React.Component {
+export default class UserCenter extends React.Component {
     componentDidMount() {
-        // this.props.GetAllUser();
+        this.props.GetAllUser();
     }
 
     queryOne() {
@@ -15,8 +17,17 @@ export default class AddUser extends React.Component {
         this.props.DeleteOneUser(username)
     }
 
-    addOne() {
-
+    modifyModal(ele) {
+        const username = ele.username;
+        this.props.GetOneUser(username);
+        // this.refs.modifyUsername.value = ele.username;
+        // this.refs.modifyName.value = ele.name;
+        // this.refs.modifyAge.value = ele.age;
+        // this.refs.modifySex.value = ele.sex;
+        // this.refs.modifyPhone.value = ele.phone;
+        // this.refs.modifyEmail.value = ele.email;
+        // this.refs.modifyRemark.value = ele.remark;
+        $('#modifyModal').modal('show');
     }
 
     render() {
@@ -30,7 +41,10 @@ export default class AddUser extends React.Component {
                 <td>{ele.email}</td>
                 <td>{ele.remark}</td>
                 <td>
-                    <button>修改</button>
+                    <button className="btn btn-warning" data-toggle="modal"
+                            data-target="#ModifyModal" onClick={this.modifyModal.bind(this, ele)}>修改
+                    </button>
+                    <ModifyUser/>
                     <button onClick={this.deleteOne.bind(this, ele.username)}>删除</button>
                 </td>
             </tr>
@@ -52,36 +66,11 @@ export default class AddUser extends React.Component {
                         <input type="text" className="form-control " placeholder="请输入要查询的用户" ref="username"/>
                     </div>
                     <button onClick={this.queryOne.bind(this)} className="btn btn-primary">查询</button>
-                    <button onClick={this.addOne.bind(this)} className="btn btn-warning" data-toggle="modal"
-                            data-target="#myModal">增加
+                    <button className="btn btn-warning" data-toggle="modal"
+                            data-target="#AddModal">增加
                     </button>
                 </div>
-                <div className="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                     aria-hidden="true">
-                    <div className="modal-dialog">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <button type="button" className="close" data-dismiss="modal"
-                                        aria-hidden="true">&times;</button>
-                                <h4 className="modal-title" id="myModalLabel">增加用户信息</h4>
-                            </div>
-                            <div className="modal-body">
-                                <span>用户名</span><input type="text" ref="username" placeholder="请输入要查询的用户" className="addInput"/>
-                                <span>姓名</span><input type="text" ref="name" placeholder="请输入要查询的用户" className="addInput"/>
-                                <span>年龄</span><input type="text" ref="age" placeholder="请输入要查询的用户" className="addInput"/>
-                                <span>性别</span><input type="text" ref="sex" placeholder="请输入要查询的用户" className="addInput"/>
-                                <span>电话</span><input type="text" ref="phone" placeholder="请输入要查询的用户" className="addInput"/>
-                                <span>邮件</span><input type="text" ref="email" placeholder="请输入要查询的用户" className="addInput"/>
-                                <span>备注</span><input type="text" ref="remark" placeholder="请输入要查询的用户" className="addInput"/>
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-default" data-dismiss="modal">关闭</button>
-                                <button type="button" className="btn btn-primary">提交更改</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                <AddUser/>
                 <div>
                     <table className="table table-style">
                         <thead>

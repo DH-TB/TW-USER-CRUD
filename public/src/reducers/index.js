@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import AddUser from './AddUser';
+import FindOneUser from './FindOneUser';
 import FindUser from './FindUser';
 
 export default combineReducers({
-    AddUser,
+    FindOneUser,
     FindUser
 })

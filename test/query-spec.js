@@ -17,4 +17,9 @@ describe('loading express', function () {
             .get('/getUser')
             .expect(200, done);
     });
+    it('responds to /', (done)=> {
+        request(server)
+            .get('/getOneUser')
+            .expect(200, done);
+    });
 });
