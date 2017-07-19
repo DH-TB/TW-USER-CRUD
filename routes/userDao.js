@@ -37,6 +37,25 @@ module.exports = {
             });
         });
     },
+    modify: function (req, res, next) {
+        const body = req.body;
+        console.log(body.username);
+        pool.getConnection(function(err, connection) {
+            connection.query($sql.update, [body.name,body.age,body.sex,body.phone,body.email,body.remark,body.username],(err, result)=> {
+               console.log(result);
+               /* if(result.affectedRows > 0) {
+                    result = {
+                        code: 200,
+                        msg: '修改成功'
+                    };
+                   res.send(result);
+                }*/
+                res.send(result);
+                connection.release();
+            });
+        });
+
+    },
     queryAll: (req, res, next) => {
         pool.getConnection((err, connection)=> {
             connection.query($sql.queryAll, (err, result)=> {
@@ -48,7 +67,7 @@ module.exports = {
     queryOne: (req, res, next) => {
         const username = req.params.username;
         pool.getConnection(function (err, connection) {
-            connection.query($sql.queryByUserName, username, (err, result)=> {
+            connection.query($sql.queryOne, username, (err, result)=> {
                 jsonWrite(res, result);
                 connection.release();
             });
@@ -57,7 +76,7 @@ module.exports = {
     queryByUserName: (req, res, next) => {
         const username = req.params.username;
         pool.getConnection(function (err, connection) {
-            connection.query($sql.queryByUserName, username, (err, rows, result)=> {
+            connection.query($sql.queryOne, username, (err, rows, result)=> {
                 for (var i in rows) {
                     jsonWrite(res, rows[i]);
                 }
@@ -68,7 +87,7 @@ module.exports = {
     deleteByUserName: function (req, res, next) {
         pool.getConnection((err, connection) => {
             const username = req.params.username;
-            connection.query($sql.deleteByUserName, username, function (err, result) {
+            connection.query($sql.delete, username, function (err, result) {
                 if (result.affectedRows > 0) {
                     result = {
                         code: 200,

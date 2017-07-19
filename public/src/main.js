@@ -11,8 +11,9 @@ import reducer from './reducers/index.js';
 import findUser from './middlewares/FindUser';
 import deleteUser from './middlewares/DeleteUser';
 import addUser from './middlewares/AddUser';
+import modifyUser from './middlewares/ModifyUser';
 
-const middleWare = applyMiddleware(thunkMiddleware,findUser,deleteUser,addUser);
+const middleWare = applyMiddleware(thunkMiddleware,findUser,deleteUser,addUser,modifyUser);
 const store = createStore(reducer,middleWare);
 
 ReactDom.render(

@@ -26,6 +26,7 @@ export default class UserCenter extends React.Component {
     render() {
         const user = this.props.FindUser.map((ele, index)=> {
             return <tr key={index}>
+                <td>{index}</td>
                 <td>{ele.username}</td>
                 <td>{ele.name}</td>
                 <td>{ele.age}</td>
@@ -68,6 +69,7 @@ export default class UserCenter extends React.Component {
                     <table className="table table-style">
                         <thead>
                         <tr>
+                            <th>序号</th>
                             <th>用户名</th>
                             <th>姓名</th>
                             <th>年龄</th>

@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import UserCenter from '../components/UserCenter';
-import actions from '../actions/User';
+import actions from '../actions/UserCenter';
 
 const mapStateToProps = (state)=> {
     return {
@@ -19,7 +19,7 @@ const mapDispatchToProps = (dispatch)=> {
             dispatch(actions.deleteOneUser(username))
         },
         GetModifyUser:(username)=>{
-            dispatch(actions.getOneUser(username))
+            dispatch(actions.getModifyUser(username))
         },
     }
 };

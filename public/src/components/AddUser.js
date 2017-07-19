@@ -3,8 +3,8 @@ import React, {Component} from 'react';
 export default class AddUser extends Component {
     addUser(){
         const username = this.refs.username.value;
-        const name = this.refs.username.value;
-        const age = this.refs.username.value;
+        const name = this.refs.name.value;
+        const age = this.refs.age.value;
         const sex = this.refs.sex.value;
         const phone = this.refs.phone.value;
         const email = this.refs.email.value;
