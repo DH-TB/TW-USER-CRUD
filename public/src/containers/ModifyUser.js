@@ -7,8 +7,8 @@ const mapStateToProps = (state)=> {
 };
 const mapDispatchToProps = (dispatch)=> {
     return {
-        ModifyUser:(username,name,age,sex,phone,email,remark)=>{
-            dispatch(actions.modifyUser(username,name,age,sex,phone,email,remark))
+        ModifyUser:(id,username,name,age,sex,phone,email,remark)=>{
+            dispatch(actions.modifyUser(id,username,name,age,sex,phone,email,remark))
         }
     }
 };

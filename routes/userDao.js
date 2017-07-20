@@ -39,18 +39,15 @@ module.exports = {
     },
     modify: function (req, res, next) {
         const body = req.body;
-        console.log(body.username);
-        pool.getConnection(function(err, connection) {
-            connection.query($sql.update, [body.name,body.age,body.sex,body.phone,body.email,body.remark,body.username],(err, result)=> {
-               console.log(result);
-               /* if(result.affectedRows > 0) {
+        pool.getConnection((err, connection)=> {
+            connection.query($sql.update, [body.username,body.name,body.age,body.sex,body.phone,body.email,body.remark,body.id],(err, result)=> {
+                if(result.affectedRows > 0) {
                     result = {
                         code: 200,
                         msg: '修改成功'
                     };
                    res.send(result);
-                }*/
-                res.send(result);
+                }
                 connection.release();
             });
         });

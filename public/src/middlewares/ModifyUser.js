@@ -5,10 +5,10 @@ export default store=>next=>action=>{
         case 'MODIFY_USER':
             request.put('/modifyUser')
                 .send({
-                    "username":action.username,"name":action.name,
-                    "age":action.age,"sex":action.age,
-                    "phone":action.phone,"email":action.email,
-                    "remark":action.remark
+                    "id":action.id,"username":action.username,
+                    "name":action.name, "age":action.age,
+                    "sex":action.sex, "phone":action.phone,
+                    "email":action.email, "remark":action.remark
                 })
                 .end((err,res)=>{
                     store.dispatch({type:'GET_ALL_USER'})

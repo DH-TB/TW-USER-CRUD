@@ -18,7 +18,8 @@ export default class ModifyUser extends Component {
         const phone = this.refs.modifyPhone.value;
         const email = this.refs.modifyEmail.value;
         const remark = this.refs.modifyRemark.value;
-        this.props.ModifyUser(username,name,age,sex,phone,email,remark);
+        const id = this.props.FindOneUser.id;
+        this.props.ModifyUser(id,username,name,age,sex,phone,email,remark);
 
     }
     render() {
