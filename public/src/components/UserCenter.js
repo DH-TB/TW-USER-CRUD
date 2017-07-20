@@ -61,7 +61,7 @@ export default class UserCenter extends React.Component {
             </nav>
             <div id="main">
                 <div className="row">
-                    <div className="col-lg-4">
+                    <div className="col-lg-3">
                         <input type="text" className="form-control " placeholder="请输入要查询的用户" ref="username"/>
                     </div>
                     <button onClick={this.queryOne.bind(this)} className="btn btn-info">查询</button>

@@ -10,8 +10,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
 app.use(require('./routes/index'));
 
-const server = app.listen(3000, ()=> {
-    const port = server.address().port;
-    console.log("listening on " + port);
-});
-module.exports = server;
+const port = 3000;
+if (!module.parent) {
+    app.listen(port, ()=> {
+            console.log('listening on 3000');
+        });
+}
+
+module.exports = app;

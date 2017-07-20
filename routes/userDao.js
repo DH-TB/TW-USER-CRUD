@@ -63,7 +63,7 @@ module.exports = {
     },
     queryOne: (req, res, next) => {
         const username = req.params.username;
-        pool.getConnection(function (err, connection) {
+        pool.getConnection( (err, connection)=> {
             connection.query($sql.queryOne, username, (err, result)=> {
                 jsonWrite(res, result);
                 connection.release();
