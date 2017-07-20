@@ -44,7 +44,7 @@ export default class UserCenter extends React.Component {
                             data-target="#ModifyModal" onClick={this.modifyModal.bind(this, ele)}>修改
                     </button>
                     <ModifyUser/>
-                    <button onClick={this.deleteOne.bind(this, ele.id)}>删除</button>
+                    <button className="btn btn-danger" onClick={this.deleteOne.bind(this, ele.id)}>删除</button>
                 </td>
             </tr>
         });
@@ -64,8 +64,8 @@ export default class UserCenter extends React.Component {
                     <div className="col-lg-4">
                         <input type="text" className="form-control " placeholder="请输入要查询的用户" ref="username"/>
                     </div>
-                    <button onClick={this.queryOne.bind(this)} className="btn btn-primary">查询</button>
-                    <button className="btn btn-warning" data-toggle="modal"
+                    <button onClick={this.queryOne.bind(this)} className="btn btn-info">查询</button>
+                    <button className="btn btn-success" data-toggle="modal"
                             data-target="#AddModal">增加
                     </button>
                 </div>

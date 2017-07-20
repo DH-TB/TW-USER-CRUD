@@ -6,6 +6,17 @@
     color: white;
     margin-left: 40%;
 }
-#input{
+span{
+    font-size: larger;
+}
+.input{
     border-radius: 4px;
+    margin-top: 2%;
+    margin-left: 3%;
+    text-indent: 5%;
+    width: 50%;
+    height: 35px;
+}
+#tip{
+    color:red;
 }

@@ -6,7 +6,7 @@ export default store=>next=>action=>{
             request.post('/addUser')
                 .send({
                     "username":action.username,"name":action.name,
-                    "age":action.age,"sex":action.age,
+                    "age":action.age,"sex":action.sex,
                     "phone":action.phone,"email":action.email,
                     "remark":action.remark
                 })
