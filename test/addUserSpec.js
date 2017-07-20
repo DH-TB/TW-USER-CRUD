@@ -3,11 +3,9 @@ const server = require('../server');
 const request = require('supertest');
 const mysql = require('mysql');
 const $conf = require('../routes/conf');
-const $sql = require('../routes/userSqlMapping');
 const pool = mysql.createPool($conf.mysql);
 
 describe('unit test loading express', ()=> {
-    let id;
     const userInfo = {
         "username": 'huanglizhen',
         "name": 'hhh',
