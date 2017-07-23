@@ -6,4 +6,4 @@ services:
 sudo: required
 script: npm test
 before_install:
-  - mysql -u root --password="" < travis.sql
+  - mysql < travis.sql
