@@ -10,16 +10,14 @@ export default class AddUser extends Component {
         const email = this.refs.email.value;
         const remark = this.refs.remark.value;
         if (username && name && age && sex && phone && email && remark) {
+            $('#AddModal').modal('hide');
+            alert('添加成功');
             this.props.AddUser(username, name, age, sex, phone, email, remark);
         }
         else{
+            $('#AddModal').modal('show');
             $("#tip").text('请输入完整信息');
         }
-        /*$(function () {
-         $('#AddModal').on('hide.bs.modal', ()=> {
-         alert('添加成功');
-         })
-         });*/
     }
 
     render() {
@@ -60,7 +58,6 @@ export default class AddUser extends Component {
 
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-default" data-dismiss="modal">关闭</button>
                         <button type="button" className="btn btn-primary" onClick={this.addUser.bind(this)}>提交更改
                         </button>
                     </div>

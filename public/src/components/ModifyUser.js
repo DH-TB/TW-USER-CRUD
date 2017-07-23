@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 export default class ModifyUser extends Component {
-    componentDidUpdate(){
+    componentDidUpdate() {
         this.refs.modifyUsername.value = this.props.FindOneUser.username;
         this.refs.modifyName.value = this.props.FindOneUser.name;
         this.refs.modifyAge.value = this.props.FindOneUser.age;
@@ -10,7 +10,8 @@ export default class ModifyUser extends Component {
         this.refs.modifyEmail.value = this.props.FindOneUser.email;
         this.refs.modifyRemark.value = this.props.FindOneUser.remark;
     }
-    modifyUser(){
+
+    modifyUser() {
         const username = this.refs.modifyUsername.value;
         const name = this.refs.modifyName.value;
         const age = this.refs.modifyAge.value;
@@ -20,14 +21,17 @@ export default class ModifyUser extends Component {
         const remark = this.refs.modifyRemark.value;
         const id = this.props.FindOneUser.id;
         if (username && name && age && sex && phone && email && remark) {
-            this.props.ModifyUser(id,username,name,age,sex,phone,email,remark);
-            $('#modifyModal').modal('hide');
+            alert('修改成功');
+            $('#ModifyModal').modal('hide');
+            this.props.ModifyUser(id, username, name, age, sex, phone, email, remark);
         }
-        else{
-            $("#tip").text('请输入完整信息');
+        else {
+            console.log(123);
+            $('#ModifyModal').modal('show');
+            $("#modifyTip").text('请输入完整信息');
         }
-
     }
+
     render() {
         return <div className="modal fade" id="ModifyModal" tabIndex="-1" role="dialog"
                     aria-labelledby="myModalLabel" aria-hidden="true">
@@ -40,36 +44,42 @@ export default class ModifyUser extends Component {
                     </div>
                     <div className="modal-body">
                         <div>
-                            <span>用户名</span><input type="text" ref="modifyUsername" placeholder="请输入要修改的用户名" className="input"/>
+                            <span>用户名</span><input type="text" ref="modifyUsername" placeholder="请输入要修改的用户名"
+                                                   className="input"/>
                         </div>
                         <div>
-                            <span>姓名</span><input type="text" ref="modifyName" placeholder="请输入要修改的姓名" className="input"/>
+                            <span>姓名</span><input type="text" ref="modifyName" placeholder="请输入要修改的姓名"
+                                                  className="input"/>
                         </div>
                         <div>
-                            <span>年龄</span><input type="text" ref="modifyAge" placeholder="请输入要修改的年龄" className="input"/>
+                            <span>年龄</span><input type="text" ref="modifyAge" placeholder="请输入要修改的年龄"
+                                                  className="input"/>
                         </div>
                         <div>
-                            <span>性别</span><input type="text" ref="modifySex" placeholder="请输入要修改的性别" className="input"/>
+                            <span>性别</span><input type="text" ref="modifySex" placeholder="请输入要修改的性别"
+                                                  className="input"/>
                         </div>
                         <div>
-                            <span>电话</span><input type="text" ref="modifyPhone" placeholder="请输入要修改的电话" className="input"/>
+                            <span>电话</span><input type="text" ref="modifyPhone" placeholder="请输入要修改的电话"
+                                                  className="input"/>
                         </div>
                         <div>
-                            <span>邮件</span><input type="text" ref="modifyEmail" placeholder="请输入要修改的邮箱" className="input"/>
+                            <span>邮件</span><input type="text" ref="modifyEmail" placeholder="请输入要修改的邮箱"
+                                                  className="input"/>
                         </div>
                         <div>
-                            <span>备注</span><input type="text" ref="modifyRemark" placeholder="请输入要修改的备注" className="input"/>
+                            <span>备注</span><input type="text" ref="modifyRemark" placeholder="请输入要修改的备注"
+                                                  className="input"/>
                         </div>
                         <div>
-                            <span id="tip"></span>
+                            <span id="modifyTip"></span>
                         </div>
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-default" data-dismiss="modal">关闭</button>
-                        <button type="button" className="btn btn-primary" onClick={this.modifyUser.bind(this)}>提交更改</button>
+                        <button type="button" className="btn btn-primary" onClick={this.modifyUser.bind(this)}>确认修改
+                        </button>
                     </div>
                 </div>
-
             </div>
         </div>
 

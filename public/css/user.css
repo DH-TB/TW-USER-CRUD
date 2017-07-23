@@ -1,15 +1,21 @@
-#NavImg{
-   margin-left: 15%;
+#NavImg {
+    margin-left: 30%;
+    margin-top: 8px;
+    height: 30px;
 }
-#NavName{
-    font-size: xx-large;
+
+#NavName {
+    font-size: x-large;
     color: white;
-    margin-left: 40%;
+    margin-top: 6px;
+    text-align: center;
 }
-span{
+
+span {
     font-size: larger;
 }
-.input{
+
+.input {
     border-radius: 4px;
     margin-top: 2%;
     margin-left: 3%;
@@ -17,6 +23,15 @@ span{
     width: 50%;
     height: 35px;
 }
-#tip{
-    color:red;
+
+#tip,#modifyTip{
+    color: red;
+}
+
+table tr{
+    border-bottom: solid 1px white;
+    color: white;
+}
+#ModifyModal{
+    color: black;
 }

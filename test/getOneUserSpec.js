@@ -1,34 +1,36 @@
 require('../registerBabel');
 const server = require('../server');
 const request = require('supertest');
-const mysql = require('mysql');
-const $conf = require('../routes/conf');
+
 const $sql = require('../routes/userSqlMapping');
-const pool = mysql.createPool($conf.mysql);
+const connection = require('../routes/conf');
 
 describe('unit test loading express', ()=> {
     let id;
-    const username = 'huanglizhen';
+    const user = {
+        username: 'huanglizhen',
+        name: 'hhh',
+        age: 21,
+        sex: 'girl',
+        phone: '15091671302',
+        email: '929659475@qq.com',
+        remark: 'dh'
+    };
     beforeEach((done)=> {
-        pool.getConnection((err, connection)=> {
-            connection.query($sql.insert, ['huanglizhen', 'hhh', 21, 'gril', '15091671302', '929659475@qq.com', 'dh'], (err, result)=> {
-                id = result.insertId;
-                connection.release();
-                done();
-            });
+        connection.query($sql.insert, [user.username, user.name, user.age, user.sex, user.phone, user.email, user.remark], (err, result)=> {
+            id = result.insertId;
+            user.id = id;
+            done();
         });
     });
     afterEach((done)=> {
-        pool.getConnection((err, connection)=> {
-            connection.query($sql.delete, id, (err, result)=> {
-                connection.release();
-                done();
-            });
+        connection.query($sql.delete, id, (err, result)=> {
+            done();
         });
     });
     it('response to /getOneUser', (done)=> {
         request(server.listen())
-            .get(`/getOneUser/${username}`)
-            .expect(200, done);
+            .get(`/getOneUser/${user.username}`)
+            .expect(200, [user], done);
     })
 });

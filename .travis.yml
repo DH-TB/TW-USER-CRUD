@@ -3,16 +3,7 @@ node_js :
   - "6"
 services:
   - mysql
+sudo: required
+script: npm test
 before_install:
-  - mysql -e 'CREATE DATABASE IF NOT EXISTS UserManage;'
-  - mysql -e 'use UserManage;CREATE TABLE userInfo
-                           (
-                           id INT auto_increment primary key,
-                           username varchar(255)  NOT NULL,
-                           name varchar(255)  NOT NULL,
-                           age INT NOT NULL DEFAULT 0,
-                           sex varchar(4)  NOT NULL,
-                           phone varchar(255)  NOT NULL,
-                           email varchar(255)  NOT NULL,
-                           remark varchar(255)  NOT NULL,
-                           )'
+  - mysql -u root --password="" < travis.sql
